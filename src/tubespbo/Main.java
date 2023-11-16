@@ -13,11 +13,11 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        System.out.println("hello world");
-        System.out.println("Halooo!!!");
-        System.out.println("pppp");
-        System.out.println("asdfg");
-    }
+//    public static void main(String[] args) {
+//        System.out.println("hello world");
+//        System.out.println("Halooo!!!");
+//        System.out.println("pppp");
+//        System.out.println("asdfg");
+//    }
     
 }

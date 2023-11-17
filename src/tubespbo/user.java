@@ -15,6 +15,7 @@ public class user extends javax.swing.JFrame {
      */
     public user() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

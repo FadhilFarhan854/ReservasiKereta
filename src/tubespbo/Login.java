@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         userTF = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        loginBtn = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
         passTF = new javax.swing.JPasswordField();
 
@@ -76,10 +76,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loginBtn.setText("Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginBtnActionPerformed(evt);
             }
         });
 
@@ -108,7 +108,7 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton1)
+                            .addComponent(loginBtn)
                             .addComponent(userTF, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(passTF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))))
@@ -130,7 +130,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jCheckBox1)
                 .addGap(31, 31, 31)
-                .addComponent(jButton1)
+                .addComponent(loginBtn)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
@@ -141,7 +141,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userTFActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
         try {
             Koneksi conn = new Koneksi();
@@ -164,14 +164,14 @@ public class Login extends javax.swing.JFrame {
          }
         } catch (Exception e) {
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loginBtnActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
         if (jCheckBox1.isSelected()) {
             passTF.setEchoChar((char)0);
         } else {
-            passTF.setEchoChar('*');
+            passTF.setEchoChar('•');
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
@@ -211,11 +211,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton loginBtn;
     private javax.swing.JPasswordField passTF;
     private javax.swing.JTextField userTF;
     // End of variables declaration//GEN-END:variables

@@ -14,9 +14,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Login login = new Login();
-        System.out.println("");
-        login.setVisible(true);
+        new Register().setVisible(true);
     }
     
 }

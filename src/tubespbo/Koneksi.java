@@ -10,7 +10,6 @@ package tubespbo;
  */
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -18,7 +17,6 @@ import java.sql.SQLException;
 public class Koneksi {
     public Connection koneksi() throws SQLException{
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kereta", "root","");
-        
         return conn;
     }
 }

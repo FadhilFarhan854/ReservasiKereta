@@ -55,8 +55,8 @@ public class Register extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btnSubmit = new com.k33ptoo.components.KButton();
         showPassword = new javax.swing.JCheckBox();
+        btnRegister = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 153, 255));
@@ -146,21 +146,6 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        btnSubmit.setBorder(null);
-        btnSubmit.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnSubmit.setkAllowGradient(false);
-        btnSubmit.setkBackGroundColor(new java.awt.Color(0, 91, 65));
-        btnSubmit.setkHoverColor(new java.awt.Color(0, 79, 56));
-        btnSubmit.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        btnSubmit.setkPressedColor(new java.awt.Color(0, 71, 51));
-        btnSubmit.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        btnSubmit.setLabel("Submit");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
-            }
-        });
-
         showPassword.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         showPassword.setText("Show password");
         showPassword.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -171,34 +156,39 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        btnRegister.setBackground(new java.awt.Color(0, 91, 65));
+        btnRegister.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegister.setText("Submit");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                                .addComponent(emailTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel7))
-                                .addComponent(btnSubmit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(namaTextField, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(showPassword))
-                        .addContainerGap(29, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                        .addComponent(emailTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel7))
+                        .addComponent(namaTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(showPassword)
+                    .addComponent(jLabel1)
+                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,8 +210,8 @@ public class Register extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(showPassword)
                 .addGap(18, 18, 18)
-                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
@@ -267,7 +257,16 @@ public class Register extends javax.swing.JFrame {
         jLabel7.setCursor(cursor);
     }//GEN-LAST:event_jLabel7MouseEntered
 
-    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+    private void showPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordActionPerformed
+        // TODO add your handling code here:
+        if (showPassword.isSelected()) {
+            passwordTextField.setEchoChar((char)0);
+        } else {
+            passwordTextField.setEchoChar('•');
+        }
+    }//GEN-LAST:event_showPasswordActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         try {
             Koneksi conn = new Koneksi();
@@ -295,16 +294,7 @@ public class Register extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }//GEN-LAST:event_btnSubmitActionPerformed
-
-    private void showPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordActionPerformed
-        // TODO add your handling code here:
-        if (showPassword.isSelected()) {
-            passwordTextField.setEchoChar((char)0);
-        } else {
-            passwordTextField.setEchoChar('•');
-        }
-    }//GEN-LAST:event_showPasswordActionPerformed
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,7 +336,7 @@ public class Register extends javax.swing.JFrame {
 //    KOMEN KETIGA
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.k33ptoo.App app1;
-    private com.k33ptoo.components.KButton btnSubmit;
+    private javax.swing.JButton btnRegister;
     private com.k33ptoo.utils.ComponentMoverUtil componentMoverUtil1;
     private com.k33ptoo.utils.ComponentResizerUtil componentResizerUtil1;
     private javax.swing.JTextField emailTextField;

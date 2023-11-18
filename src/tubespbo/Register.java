@@ -343,6 +343,7 @@ public class Register extends javax.swing.JFrame {
 
 //    HARUSNYA ADA btnSubmit DIBAWAH INI
 //    KOMEN KEDUA
+//    KOMEN KETIGA
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.k33ptoo.App app1;
     private com.k33ptoo.components.KButton btnSubmit;

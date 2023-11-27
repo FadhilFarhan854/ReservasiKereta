@@ -179,10 +179,7 @@ public class admin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addContainerGap(32, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel6)
@@ -208,8 +205,12 @@ public class admin extends javax.swing.JFrame {
                                 .addComponent(jumlahKursi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                                 .addComponent(kotaTujuan, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(kotaAsal, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(namaKereta, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                .addComponent(namaKereta, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -217,7 +218,7 @@ public class admin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
@@ -363,6 +364,33 @@ public class admin extends javax.swing.JFrame {
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
         // TODO add your handling code here:
+        try {
+            Koneksi conn = new Koneksi();
+            Object jml = jumlahKursi.getValue();
+
+            String query = "UPDATE `kereta` SET `nama_kereta` = '" + namaKereta.getText() + "', `keberangkatan` = '" + kotaAsal.getText() + "', `tujuan` = '" + kotaTujuan.getText() + "', `jumlah_tersedia` = '" + jumlahKursi.getValue() + "', `waktu_keberangkatan` = ' " + jam.getValue() + ":" + menit.getValue() + ":" + detik.getValue() + "' WHERE `kereta`.`id_kereta` = " + this.id;
+            PreparedStatement stm = conn.koneksi().prepareStatement(query);
+
+            int rowsInserted = stm.executeUpdate();
+            if (namaKereta.getText().equals("") || 
+                    kotaAsal.getText().equals("") || 
+                    kotaTujuan.getText().equals("") || 
+                    jumlahKursi.getValue().equals("") || 
+                    jam.getValue().equals("") || 
+                    menit.getValue().equals("") || 
+                    detik.getValue().equals("")) {
+                JOptionPane.showMessageDialog(null, "Form harus diisi semua!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Input Berhasil");
+                shows();
+                hapusInput();
+            }
+
+            stm.close();
+            conn.koneksi().close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_editActionPerformed
 
     /**

@@ -5,7 +5,6 @@ import java.awt.Cursor;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import tubespbo.Koneksi;
-import tubespbo.Login;
 import java.sql.PreparedStatement;
 import javax.swing.JFrame;
 
@@ -219,7 +218,7 @@ public class Login1 extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        new Login().setVisible(true);
+        new Login1().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel7MouseClicked
 
@@ -237,7 +236,8 @@ public class Login1 extends javax.swing.JFrame {
             passwordTextField.setEchoChar('•');
         }
     }//GEN-LAST:event_showPasswordActionPerformed
-
+    
+    
     private void LoginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginbtnActionPerformed
         // TODO add your handling code here:
         try {

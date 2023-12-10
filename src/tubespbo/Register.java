@@ -5,7 +5,6 @@ import java.awt.Cursor;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import tubespbo.Koneksi;
-import tubespbo.Login;
 import java.sql.PreparedStatement;
 import javax.swing.JFrame;
 
@@ -25,7 +24,7 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(this);
     }
 
@@ -247,7 +246,7 @@ public class Register extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        new Login().setVisible(true);
+        new Login1().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel7MouseClicked
 
@@ -284,7 +283,7 @@ public class Register extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Form harus diisi semua!");
             } else {
                 JOptionPane.showMessageDialog(null, "Register Berhasil");
-                new Login().setVisible(true);
+                new Login1().setVisible(true);
                 this.dispose();
 
             }

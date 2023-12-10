@@ -7,6 +7,12 @@ import javax.swing.JOptionPane;
 import tubespbo.Koneksi;
 import java.sql.PreparedStatement;
 import javax.swing.JFrame;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -22,11 +28,16 @@ public class Login1 extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
+    public String String1;
+    public String String2;
+    
     public Login1() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(this);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -241,31 +252,33 @@ public class Login1 extends javax.swing.JFrame {
     private void LoginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginbtnActionPerformed
         // TODO add your handling code here:
         try {
-            Koneksi conn = new Koneksi();
-
-            ResultSet rs = conn.koneksi().createStatement().executeQuery("SELECT * FROM accounts WHERE nama='"+namaTextField.getText()+"' AND password='"+passwordTextField.getText()+"' ");
-            
-            if(rs.next()){
+        Koneksi conn = new Koneksi();
+        ResultSet rs = conn.koneksi().createStatement().executeQuery("SELECT * FROM accounts WHERE nama='"+namaTextField.getText()+"' AND password='"+passwordTextField.getText()+"' ");
+        
+        if (rs.next()) {
             if ("0".equals(rs.getString("status"))) {
+                // Save user ID to the session
+                SessionManager.getInstance().setUserId(rs.getString("id"));
+
                 JOptionPane.showMessageDialog(null, "Berhasil Masuk");
-                new user().setVisible(true);
+                new UserMenu().setVisible(true);
                 this.dispose();
-            }
-            else if("1".equals(rs.getString("status"))) {
+            } else if("1".equals(rs.getString("status"))) {
+                // Save admin ID to the session
+                SessionManager.getInstance().setUserId(rs.getString("id"));
+
                 JOptionPane.showMessageDialog(null, "Berhasil Masuk Sebagai admin");
                 new admin().setVisible(true);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Gagal Login");
             }
-         }
-           
-
-            
-            conn.koneksi().close();
-        } catch (Exception e) {
-            System.out.println(e);
         }
+
+        conn.koneksi().close();
+    } catch (Exception e) {
+        System.out.println(e);
+    }
     }//GEN-LAST:event_LoginbtnActionPerformed
 
     /**

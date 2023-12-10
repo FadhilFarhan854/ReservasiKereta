@@ -17,15 +17,23 @@ import javax.swing.table.DefaultTableModel;
 public class Pemesanan extends javax.swing.JFrame {
     
     DefaultTableModel model;
-    Login1 login = new Login1();
-    private String id_user = login.id_User;
+    Login1 login = new Login1();   
 
     /**
      * Creates new form Pemesanan
      */
+    //ambil id dari sessions
+    String id_user = SessionManager.getInstance().getUserId();
     public Pemesanan() {
+        
+     
+        
+        
+        
         initComponents();
         setLocationRelativeTo(this);
+        
+        
         
         String [] rows = {"no", "Nama Kereta", "Kota Asal", "Kota Tujuan", "Jumlah Kursi", "Waktu Keberangkatan"};
         model = new DefaultTableModel(rows, 0);
@@ -331,7 +339,7 @@ public class Pemesanan extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Pemesanan().setVisible(true);
-                System.out.println(id_user);
+                
             }
         });
     }

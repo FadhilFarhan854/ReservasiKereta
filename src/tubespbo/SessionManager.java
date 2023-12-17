@@ -11,6 +11,8 @@ package tubespbo;
 public class SessionManager {
     private static SessionManager instance;
     private String userId;
+    private String userName;
+    
 
     private SessionManager() {
         // Private constructor to enforce singleton pattern
@@ -27,8 +29,17 @@ public class SessionManager {
         this.userId = userId;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+
     public String getUserId() {
         return userId;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public void clearSession() {

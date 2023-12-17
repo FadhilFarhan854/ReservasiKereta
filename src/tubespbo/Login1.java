@@ -259,6 +259,8 @@ public class Login1 extends javax.swing.JFrame {
             if ("0".equals(rs.getString("status"))) {
                 // Save user ID to the session
                 SessionManager.getInstance().setUserId(rs.getString("id"));
+                SessionManager.getInstance().setUserName(rs.getString("nama"));
+                
 
                 JOptionPane.showMessageDialog(null, "Berhasil Masuk");
                 new UserMenu().setVisible(true);
@@ -266,7 +268,8 @@ public class Login1 extends javax.swing.JFrame {
             } else if("1".equals(rs.getString("status"))) {
                 // Save admin ID to the session
                 SessionManager.getInstance().setUserId(rs.getString("id"));
-
+                SessionManager.getInstance().setUserName(rs.getString("nama"));
+                
                 JOptionPane.showMessageDialog(null, "Berhasil Masuk Sebagai admin");
                 new admin().setVisible(true);
                 this.dispose();

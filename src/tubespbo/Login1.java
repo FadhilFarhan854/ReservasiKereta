@@ -33,7 +33,8 @@ public class Login1 extends javax.swing.JFrame {
     
     public Login1() {
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setLocationRelativeTo(this);
         setLocationRelativeTo(this);
     }
     
@@ -268,7 +269,7 @@ public class Login1 extends javax.swing.JFrame {
                 SessionManager.getInstance().setUserId(rs.getString("id"));
 
                 JOptionPane.showMessageDialog(null, "Berhasil Masuk Sebagai admin");
-                new admin().setVisible(true);
+                new AdminMenu().setVisible(true);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Gagal Login");

@@ -102,6 +102,7 @@ public class UserMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pengecekan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pengecekan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pengecekanMouseClicked(evt);
@@ -175,7 +176,8 @@ public class UserMenu extends javax.swing.JFrame {
 
     private void pengecekanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pengecekanMouseClicked
         // TODO add your handling code here:
-        
+        new CekTiketUser().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_pengecekanMouseClicked
 
     private void pemesananMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pemesananMouseClicked

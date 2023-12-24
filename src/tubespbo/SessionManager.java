@@ -12,6 +12,7 @@ public class SessionManager {
     private static SessionManager instance;
     private String userId;
     private String userName;
+    private String email;
     
 
     private SessionManager() {
@@ -31,6 +32,14 @@ public class SessionManager {
 
     public String getUserName() {
         return userName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 

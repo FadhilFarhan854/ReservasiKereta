@@ -169,8 +169,6 @@ public class ListPesanan extends javax.swing.JFrame {
         
         this.id_transaksi = tabelTransaksi.getValueAt(baris, 0).toString();
         
-        String noKtp = tabelTransaksi.getValueAt(baris, 3).toString();
-        noKTP.setText(noKtp);
         
         String jumlahTiket = tabelTransaksi.getValueAt(baris, 4).toString();
         jmlTiket.setText(jumlahTiket);
@@ -184,11 +182,11 @@ public class ListPesanan extends javax.swing.JFrame {
         try {
             Koneksi conn = new Koneksi();
 
-            String query = "UPDATE `transaksi` SET `no_ktp` = '" + noKTP.getText() + "', `jml_tiket` = '" + jmlTiket.getText() + "' WHERE `transaksi`.`id_transaksi` = " + this.id_transaksi;
+            String query = "UPDATE `transaksi` SET `jml_tiket` = '" + jmlTiket.getText() + "' WHERE `transaksi`.`id_transaksi` = " + this.id_transaksi;
             PreparedStatement stm = conn.koneksi().prepareStatement(query);
 
             int rowsInserted = stm.executeUpdate();
-            if (noKTP.getText().equals("") || jmlTiket.getText().equals("")) {
+            if (jmlTiket.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Form harus diisi semua!");
             } else {
                 JOptionPane.showMessageDialog(null, "Input Berhasil");
@@ -290,7 +288,6 @@ public class ListPesanan extends javax.swing.JFrame {
     }
     
     private void clear(){
-        noKTP.setText("");
         jmlTiket.setText("");
     }
 

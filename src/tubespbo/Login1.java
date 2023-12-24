@@ -58,14 +58,15 @@ public class Login1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        namaTextField = new javax.swing.JTextField();
         passwordTextField = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        showPassword = new javax.swing.JCheckBox();
         Loginbtn = new javax.swing.JButton();
+        showPassword = new javax.swing.JCheckBox();
+        emailText = new javax.swing.JTextField();
+        forgotPass = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 153, 255));
@@ -78,20 +79,10 @@ public class Login1 extends javax.swing.JFrame {
         jLabel1.setText("Login");
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jLabel2.setText("Nama Lengkap");
+        jLabel2.setText("Email");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel4.setText("Password");
-
-        namaTextField.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        namaTextField.setToolTipText("");
-        namaTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
-        namaTextField.setSelectionColor(new java.awt.Color(75, 109, 175));
-        namaTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                namaTextFieldActionPerformed(evt);
-            }
-        });
 
         passwordTextField.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         passwordTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
@@ -139,16 +130,6 @@ public class Login1 extends javax.swing.JFrame {
             }
         });
 
-        showPassword.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        showPassword.setText("Show password");
-        showPassword.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        showPassword.setBorderPaintedFlat(true);
-        showPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showPasswordActionPerformed(evt);
-            }
-        });
-
         Loginbtn.setBackground(new java.awt.Color(0, 91, 65));
         Loginbtn.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Loginbtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,6 +137,28 @@ public class Login1 extends javax.swing.JFrame {
         Loginbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LoginbtnActionPerformed(evt);
+            }
+        });
+
+        showPassword.setText("Show Password");
+        showPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showPasswordActionPerformed(evt);
+            }
+        });
+
+        emailText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailTextActionPerformed(evt);
+            }
+        });
+
+        forgotPass.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        forgotPass.setForeground(new java.awt.Color(0, 91, 65));
+        forgotPass.setText("Forgot Password");
+        forgotPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgotPassMouseClicked(evt);
             }
         });
 
@@ -167,42 +170,45 @@ public class Login1 extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel2)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel6)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel7))
-                        .addComponent(namaTextField, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(showPassword)
-                    .addComponent(jLabel1)
-                    .addComponent(Loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1)
+                        .addComponent(Loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(showPassword)
+                        .addComponent(emailText))
+                    .addComponent(forgotPass))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(namaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(showPassword)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(forgotPass)
+                .addGap(45, 45, 45)
                 .addComponent(Loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -254,13 +260,14 @@ public class Login1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
         Koneksi conn = new Koneksi();
-        ResultSet rs = conn.koneksi().createStatement().executeQuery("SELECT * FROM accounts WHERE nama='"+namaTextField.getText()+"' AND password='"+passwordTextField.getText()+"' ");
+        ResultSet rs = conn.koneksi().createStatement().executeQuery("SELECT * FROM accounts WHERE email='"+emailText.getText()+"' AND password='"+passwordTextField.getText()+"' ");
         
         if (rs.next()) {
             if ("0".equals(rs.getString("status"))) {
                 // Save user ID to the session
                 SessionManager.getInstance().setUserId(rs.getString("id"));
                 SessionManager.getInstance().setUserName(rs.getString("nama"));
+                SessionManager.getInstance().setEmail(rs.getString("email"));                
                 
 
                 JOptionPane.showMessageDialog(null, "Berhasil Masuk");
@@ -270,6 +277,7 @@ public class Login1 extends javax.swing.JFrame {
                 // Save admin ID to the session
                 SessionManager.getInstance().setUserId(rs.getString("id"));
                 SessionManager.getInstance().setUserName(rs.getString("nama"));
+                SessionManager.getInstance().setEmail(rs.getString("email"));                
                 
                 JOptionPane.showMessageDialog(null, "Berhasil Masuk Sebagai admin");
                 new AdminMenu().setVisible(true);
@@ -284,6 +292,16 @@ public class Login1 extends javax.swing.JFrame {
         System.out.println(e);
     }
     }//GEN-LAST:event_LoginbtnActionPerformed
+
+    private void emailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailTextActionPerformed
+
+    private void forgotPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPassMouseClicked
+        // TODO add your handling code here:
+        new ForgotPass().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_forgotPassMouseClicked
 
     /**
      * @param args the command line arguments
@@ -320,6 +338,8 @@ public class Login1 extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
 //    HARUSNYA ADA btnSubmit DIBAWAH INI
 //    KOMEN KEDUA
@@ -329,6 +349,8 @@ public class Login1 extends javax.swing.JFrame {
     private com.k33ptoo.App app1;
     private com.k33ptoo.utils.ComponentMoverUtil componentMoverUtil1;
     private com.k33ptoo.utils.ComponentResizerUtil componentResizerUtil1;
+    private javax.swing.JTextField emailText;
+    private javax.swing.JLabel forgotPass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -337,7 +359,6 @@ public class Login1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField namaTextField;
     private javax.swing.JPasswordField passwordTextField;
     private rojerusan.RSLabelVerticalDBeanInfo rSLabelVerticalDBeanInfo1;
     private rojerusan.RSPasswordTextPlaceHolderBeanInfo rSPasswordTextPlaceHolderBeanInfo1;

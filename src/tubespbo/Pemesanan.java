@@ -22,10 +22,11 @@ public class Pemesanan extends javax.swing.JFrame {
     Login1 login = new Login1();   
 
     /**
-     * Creates new form Pemesanan
+     * Creates new form 
      */
     //ambil id dari sessions
     String id_user = SessionManager.getInstance().getUserId();
+    String namee = SessionManager.getInstance().getUserName();
     public Pemesanan() {
         
      
@@ -37,10 +38,13 @@ public class Pemesanan extends javax.swing.JFrame {
         
         
         
+        
+        
         String [] rows = {"no", "Nama Kereta", "Kota Asal", "Kota Tujuan", "Jumlah Kursi", "Waktu Keberangkatan"};
         model = new DefaultTableModel(rows, 0);
         tabelKereta.setModel(model);
         System.out.println(id_user);
+        System.out.println(namee);
         
         shows();
     }
@@ -360,7 +364,7 @@ public class Pemesanan extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Pemesanan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

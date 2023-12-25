@@ -6,6 +6,7 @@ package tubespbo;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,6 +21,8 @@ public class CekTiketUser extends javax.swing.JFrame {
     
     DefaultTableModel model;
     String id_user = SessionManager.getInstance().getUserId();
+    
+    String noKTP, namaKereta, kotaAsal, kotaTujuan, waktu, jumlahKursi;
     
     public CekTiketUser() {
         initComponents();
@@ -48,6 +51,7 @@ public class CekTiketUser extends javax.swing.JFrame {
         back = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelTransaksi = new javax.swing.JTable();
+        detailList = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,7 +93,19 @@ public class CekTiketUser extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelTransaksiMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabelTransaksi);
+
+        detailList.setText("Lihat Detail");
+        detailList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detailListActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,29 +113,36 @@ public class CekTiketUser extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 285, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(0, 278, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(back)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 285, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addGap(0, 278, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(back)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(detailList)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(back)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(detailList)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,7 +153,9 @@ public class CekTiketUser extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,6 +167,48 @@ public class CekTiketUser extends javax.swing.JFrame {
         this.dispose();
         new UserMenu().setVisible(true);
     }//GEN-LAST:event_backActionPerformed
+
+    private void detailListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailListActionPerformed
+        // TODO add your handling code here:
+        
+        JOptionPane.showMessageDialog(this, 
+                "No Ktp                 : " + this.noKTP + "\n" + 
+                "Nama Kereta            : " + this.namaKereta + "\n" +
+                "Kota Asal              : " + this.kotaAsal + "\n" +
+                "Kota Tujuan            : " + this.kotaTujuan + "\n" +
+                "Jumlah Tiket           : " + this.jumlahKursi + "\n" +
+                "Waktu Keberangkatan    : " + this.waktu,
+                "Bukti Pemesanan",
+                JOptionPane.INFORMATION_MESSAGE
+                );
+        System.out.println(this.jumlahKursi);
+        
+    }//GEN-LAST:event_detailListActionPerformed
+
+    private void tabelTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelTransaksiMouseClicked
+        // TODO add your handling code here:
+        
+        int baris = tabelTransaksi.rowAtPoint(evt.getPoint());
+        
+        String noKTP = tabelTransaksi.getValueAt(baris, 0).toString();
+        this.noKTP = noKTP;
+        
+        String namaKereta = tabelTransaksi.getValueAt(baris, 1).toString();
+        this.namaKereta = namaKereta;
+        
+        String asal = tabelTransaksi.getValueAt(baris, 2).toString();
+        this.kotaAsal = asal;
+        
+        String tujuan = tabelTransaksi.getValueAt(baris, 3).toString();
+        this.kotaTujuan = tujuan;
+        
+        String jml = tabelTransaksi.getValueAt(baris, 4).toString();
+        this.jumlahKursi = jml;
+        
+        String timeString = tabelTransaksi.getValueAt(baris, 5).toString();
+        this.waktu = timeString;
+        
+    }//GEN-LAST:event_tabelTransaksiMouseClicked
 
     /**
      * @param args the command line arguments
@@ -207,6 +274,7 @@ public class CekTiketUser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
+    private javax.swing.JButton detailList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

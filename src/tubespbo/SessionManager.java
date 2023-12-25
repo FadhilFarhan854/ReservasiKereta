@@ -42,7 +42,6 @@ public class SessionManager {
         this.email = email;
     }
 
-
     public String getUserId() {
         return userId;
     }

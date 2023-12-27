@@ -276,7 +276,7 @@ public class CekTiketUser extends javax.swing.JFrame {
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             while(res.next()){
-                model.addRow(new Object[]{res.getInt(1),res.getString(2) ,res.getString(3) ,res.getString(4), res.getString(5), res.getString(6)});                
+                model.addRow(new Object[]{res.getLong(1),res.getString(2) ,res.getString(3) ,res.getString(4), res.getString(5), res.getString(6)});                
             }
             tabelTransaksi.setModel(model);
             

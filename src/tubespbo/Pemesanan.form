@@ -199,6 +199,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="namaKereta">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -206,6 +209,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="keberangkatan">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -213,6 +219,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tujuan">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -227,10 +236,19 @@
         <Component class="javax.swing.JSpinner" name="jmlTiket">
         </Component>
         <Component class="javax.swing.JSpinner" name="jam">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JSpinner" name="menit">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JSpinner" name="detik">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>

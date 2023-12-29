@@ -107,13 +107,25 @@ public class Pemesanan extends javax.swing.JFrame {
 
         jLabel2.setText("NIK / No. KTP");
 
+        namaKereta.setEditable(false);
+
         jLabel3.setText("Nama Kereta");
 
+        keberangkatan.setEditable(false);
+
         jLabel4.setText("Keberangkatan");
+
+        tujuan.setEditable(false);
 
         jLabel5.setText("Tujuan");
 
         jLabel6.setText("Jumlah Tiket");
+
+        jam.setEnabled(false);
+
+        menit.setEnabled(false);
+
+        detik.setEnabled(false);
 
         jLabel7.setText("Waktu");
 

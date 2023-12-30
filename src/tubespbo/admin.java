@@ -317,9 +317,13 @@ public class admin extends javax.swing.JFrame {
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
         // TODO add your handling code here:
         try {
+            if (kotaAsal.getText().isEmpty()||kotaTujuan.getText().isEmpty()||namaKereta.getText().isEmpty() || jam.getValue().equals(null) || menit.getValue().equals(null) || detik.getValue().equals(null) || jumlahKursi.getValue().equals(null)) {
+                JOptionPane.showMessageDialog(null, "Form harus diisi semua!");
+            }
+            else{
             Koneksi conn = new Koneksi();
             Object jml = jumlahKursi.getValue();
-
+            
             String query = "INSERT INTO kereta (nama_kereta, keberangkatan, tujuan, jumlah_tersedia, waktu_keberangkatan) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stm = conn.koneksi().prepareStatement(query);
 
@@ -330,22 +334,15 @@ public class admin extends javax.swing.JFrame {
             stm.setString(5, jam.getValue().toString() + ":" + menit.getValue().toString() + ":" + detik.getValue().toString());
 
             int rowsInserted = stm.executeUpdate();
-            if (namaKereta.getText().equals("") || 
-                    kotaAsal.getText().equals("") || 
-                    kotaTujuan.getText().equals("") || 
-                    jumlahKursi.getValue().equals("") || 
-                    jam.getValue().equals("") || 
-                    menit.getValue().equals("") || 
-                    detik.getValue().equals("")) {
-                JOptionPane.showMessageDialog(null, "Form harus diisi semua!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Input Berhasil");
+             JOptionPane.showMessageDialog(null, "Input Berhasil");
                 shows();
                 hapusInput();
-            }
+            
 
             stm.close();
             conn.koneksi().close();
+            }
+            
         } catch (Exception e) {
             System.out.println(e);
         }

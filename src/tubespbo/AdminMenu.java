@@ -17,7 +17,7 @@ public class AdminMenu extends javax.swing.JFrame {
      */
     public AdminMenu() {
         initComponents();
-        nameAdmin.setText("Halo " + SessionManager.getInstance().getUserName());
+        nameAdmin.setText("Halo " + AdminAccount.getAdmin().getName());
     }
 
     /**

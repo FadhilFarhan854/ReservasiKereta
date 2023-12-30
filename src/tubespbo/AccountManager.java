@@ -11,11 +11,14 @@ package tubespbo;
 public class AccountManager {
     private String id;
     private String Name;
-    private int status;
+  
+    private String Emaill;
+   
 
     public AccountManager() {
         this.id = SessionManager.getInstance().getUserId();
         this.Name = SessionManager.getInstance().getUserName();
+        this.Emaill =SessionManager.getInstance().getEmail();
         
     }
 
@@ -26,6 +29,15 @@ public class AccountManager {
     public String getName() {
         return Name;
     }
+
+    public String getEmaill() {
+        return Emaill;
+    }
+
+    public void setEmaill(String Emaill) {
+        this.Emaill = Emaill;
+    }
+    
     
     
     

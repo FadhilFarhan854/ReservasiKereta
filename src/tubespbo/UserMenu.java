@@ -17,7 +17,7 @@ public class UserMenu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
         System.out.println(SessionManager.getInstance().getEmail());
-        nameUser.setText("Halo " +  SessionManager.getInstance().getUserName());
+        nameUser.setText("Halo " +  UserAccount.getuser().getName());
     }
 
     /**

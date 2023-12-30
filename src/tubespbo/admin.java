@@ -33,6 +33,13 @@ public class admin extends javax.swing.JFrame {
         model = new DefaultTableModel(rows, 0);
         tabelKereta.setModel(model);
         
+        if (tabelKereta.getSelectedRow() == -1) {
+            tambah.setEnabled(true);
+            edit.setEnabled(false);
+            hapus.setEnabled(false);
+        }
+        
+        
         shows();
     }
     
@@ -100,6 +107,11 @@ public class admin extends javax.swing.JFrame {
         back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         tabelKereta.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tabelKereta.setModel(new javax.swing.table.DefaultTableModel(
@@ -113,6 +125,11 @@ public class admin extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelKereta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tabelKeretaFocusLost(evt);
+            }
+        });
         tabelKereta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelKeretaMouseClicked(evt);
@@ -371,6 +388,14 @@ public class admin extends javax.swing.JFrame {
         jam.setValue(hour);
         menit.setValue(minute);
         detik.setValue(second);
+        
+        
+        
+            tambah.setEnabled(false);
+            edit.setEnabled(true);
+            hapus.setEnabled(true);
+        
+        
     }//GEN-LAST:event_tabelKeretaMouseClicked
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
@@ -430,6 +455,23 @@ public class admin extends javax.swing.JFrame {
         this.dispose();
         new AdminMenu().setVisible(true);
     }//GEN-LAST:event_backActionPerformed
+
+    private void tabelKeretaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tabelKeretaFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelKeretaFocusLost
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        tabelKereta.clearSelection();
+        
+        if (tabelKereta.getSelectedRow() == -1) {
+            tambah.setEnabled(true);
+            edit.setEnabled(false);
+            hapus.setEnabled(false);
+        }
+        
+        hapusInput();
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments

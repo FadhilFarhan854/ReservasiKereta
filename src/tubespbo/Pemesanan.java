@@ -262,6 +262,7 @@ public class Pemesanan extends javax.swing.JFrame {
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
         // TODO add your handling code here:
+        hapusInput();
     }//GEN-LAST:event_hapusActionPerformed
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
@@ -280,7 +281,8 @@ public class Pemesanan extends javax.swing.JFrame {
             stm.setInt(4, (int) jmlTiket.getValue());
 
             int rowsInserted = stm.executeUpdate();
-            if (namaKereta.getText().equals("") || 
+            if (noKtp.getText().equals("") ||
+                    namaKereta.getText().equals("") || 
                     keberangkatan.getText().equals("") || 
                     tujuan.getText().equals("") || 
                     jmlTiket.getValue().equals("") || 
@@ -306,13 +308,14 @@ public class Pemesanan extends javax.swing.JFrame {
     }//GEN-LAST:event_submitActionPerformed
 
     private void hapusInput(){
+        noKtp.setText("");
         namaKereta.setText("");
-                keberangkatan.setText("");
-                tujuan.setText("");
-                jmlTiket.setValue(0);
-                jam.setValue(0);
-                menit.setValue(0);
-                detik.setValue(0);
+        keberangkatan.setText("");
+        tujuan.setText("");
+        jmlTiket.setValue(0);
+        jam.setValue(0);
+        menit.setValue(0);
+        detik.setValue(0);
     }
     public String id = "";
     private void tabelKeretaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelKeretaMouseClicked

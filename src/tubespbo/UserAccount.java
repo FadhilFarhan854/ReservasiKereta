@@ -8,26 +8,25 @@ package tubespbo;
  *
  * @author Fadhilah Muhammad F
  */
-public abstract class UserAccount extends AccountManager{
+public class UserAccount extends AccountManager{
     
        
-    private String id;
-    private String Name;
+    private static UserAccount usr;
     private int status;
-
+        
+    
+    
     public UserAccount() {
         super();
         this.status = 0;      
     }
-
-    public String getId() {
-        return id;
+    
+    public static synchronized UserAccount getuser(){
+        if (usr == null) {
+            usr = new UserAccount();
+        }
+        return usr;
     }
 
-    public String getName() {
-        return Name;
-    }
-    public int status(){
-        return status;
-    }
+   
 }
